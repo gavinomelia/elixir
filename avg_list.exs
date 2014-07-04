@@ -7,13 +7,15 @@ defmodule Reader do
 		String.to_integer(cleaned)
 	end
 end
-list = [3, 2, 4]
+
 #list = [Reader.get_number, Reader.get_number, Reader.get_number]
 # if input < 0 do list ++ input
 # end
-IO.inspect list
 
 defmodule GavEnum do
+	def list do
+		[3, 2, 4]
+	end
 	def max(collection) do
 		Enum.reduce(collection, 0, fn(each, great) -> 
 			if each > great do
@@ -35,16 +37,16 @@ defmodule GavEnum do
 
 	def doubled(collection) do
 		Enum.map(collection, fn(each) ->
-			mult = Reader.get_number
-			each * mult
+			multiple = Reader.get_number
+			multiple * each
 		end)
 	end
 end
-
-avg = GavEnum.average(list)
+IO.inspect GavEnum.list
+avg = GavEnum.average(GavEnum.list)
 
 IO.puts "The average is: #{avg}"
-IO.puts "The max is: #{GavEnum.max(list)}"
-IO.puts "The sum is: #{GavEnum.sum(list)}"
+IO.puts "The max is: #{GavEnum.max(GavEnum.list)}"
+IO.puts "The sum is: #{GavEnum.sum(GavEnum.list)}"
 IO.puts "Enter multipliers:"
-IO.inspect GavEnum.doubled(list)
+IO.inspect GavEnum.doubled(GavEnum.list)
