@@ -7,7 +7,7 @@ defmodule Reader do
 	end
 
 	def get_sign do
-		IO.puts "Enter +, * (multiply), -, or %."
+		IO.puts "Enter +, * (multiply), -, %, or sq."
 		thing = IO.gets ""
 		String.strip(thing)
 	end
@@ -16,13 +16,12 @@ end
 
 first = Reader.get_number
 second = Reader.get_sign
-third = Reader.get_number
+if second == "sq" do third = 0
+else third = Reader.get_number
+end
 
 if second == "+" do IO.puts first + third end
 if second == "-" do IO.puts first - third end
 if second == "*" do IO.puts first * third end
 if second == "%" do IO.puts first / third end
-
-IO.inspect first
-IO.inspect second
-IO.inspect third
+if second == "sq" do IO.puts first * first end
